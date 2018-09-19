@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ImageViewController">
+    <left>
+        <VBox prefHeight="254.0" prefWidth="116.0" BorderPane.alignment="CENTER">
+            <children>
+            <Label text="Tags of &#10;this image:" />
+                <ListView fx:id="listView" prefHeight="232.0" prefWidth="106.0" />
+                  <Button fx:id="Delete" mnemonicParsing="false" onAction="#deleteTag" text="Delete" />
+                <GridPane prefHeight="23.0" prefWidth="100.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="newTag" promptText="new..." />
+                        <Button fx:id="input" mnemonicParsing="false" onAction="#inputNewTag" prefHeight="26.0" prefWidth="44.0" text="In" GridPane.columnIndex="1" />
+                    </children>
+                </GridPane>
+            </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="300.0" prefWidth="365.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="34.0" prefWidth="377.0">
+                    <children>
+                        <Label fx:id="Name" prefHeight="30.0" prefWidth="385.0" text="Name" />
+                    </children>
+                </HBox>
+                <ImageView fx:id="show" fitHeight="313.0" fitWidth="382.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </VBox>
+    </center>
+    <right>
+        <VBox prefHeight="322.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="17.0" prefWidth="115.0" text="Add Tag:">
+               <VBox.margin>
+                  <Insets right="10.0" top="10.0" />
+               </VBox.margin></Label>
+                <ListView fx:id="tags" onMouseClicked="#doubleClickTags" prefHeight="299.0" prefWidth="90.0">
+               <VBox.margin>
+                  <Insets right="10.0" />
+               </VBox.margin></ListView>
+            </children>
+        </VBox>
+    </right>
+   <bottom>
+      <SplitPane dividerPositions="0.25461254612546125" orientation="VERTICAL" prefHeight="273.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="60.0" prefWidth="160.0">
+               <children>
+                    <HBox prefHeight="70.0" prefWidth="600.0" spacing="10.0">
+                        <children>
+                            <Button fx:id="PREV" mnemonicParsing="false" onAction="#goBack" prefHeight="55.0" prefWidth="170.0" text="PREV" />
+                            <Button fx:id="Move" mnemonicParsing="false" onAction="#moveFile" prefHeight="50.0" prefWidth="170.0" text="MOVE" />
+                            <Button fx:id="rename" mnemonicParsing="false" onAction="#rename" prefHeight="55.0" prefWidth="170.0" text="RENAME" />
+                            <Button fx:id="history" mnemonicParsing="false" onAction="#buttonHistory" prefHeight="50.0" prefWidth="170.0" text="History..." />
+                            <Button fx:id="NEXT" mnemonicParsing="false" onAction="#goNext" prefHeight="50.0" prefWidth="170.0" text="NEXT" />
+                            <Button fx:id="CLOSE" mnemonicParsing="false" onAction="#exit" prefHeight="50.0" prefWidth="170.0" text="CLOSE" />
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                    </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="160.0">
+               <children>
+                  <ImageView fx:id="sim1" fitHeight="100.0" fitWidth="180.0" layoutX="29.0" layoutY="60.0" onMouseClicked="#doubleClick" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="sim2" fitHeight="100.0" fitWidth="180.0" layoutX="209.0" layoutY="60.0" onMouseClicked="#doubleClick" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="sim3" fitHeight="100.0" fitWidth="180.0" layoutX="389.0" layoutY="60.0" onMouseClicked="#doubleClick" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="prevPage" layoutY="103.0" mnemonicParsing="false" onAction="#buttonPrevPage" prefHeight="33.0" prefWidth="20.0" text="&lt;" />
+                  <Button fx:id="nextPage" layoutX="570.0" layoutY="103.0" mnemonicParsing="false" onAction="#buttonNextPage" prefHeight="33.0" prefWidth="20.0" text="&gt;" />
+                  <Label fx:id="pageNum" layoutX="29.0" layoutY="32.0" prefHeight="28.0" prefWidth="161.0" text="Label" />
+                  <Label fx:id="name2" layoutX="209.0" layoutY="160.0" onMouseClicked="#doubleClick" prefHeight="39.0" prefWidth="180.0" text="Label" wrapText="true" />
+                  <Label fx:id="name1" layoutX="29.0" layoutY="160.0" onMouseClicked="#doubleClick" prefHeight="40.0" prefWidth="180.0" text="Label" wrapText="true" />
+                  <Label fx:id="name3" layoutX="389.0" layoutY="160.0" prefHeight="40.0" prefWidth="180.0" text="Label" wrapText="true" />
+                  <Label layoutX="9.0" layoutY="-6.0" prefHeight="40.0" prefWidth="220.0" text="Similar Images:" textFill="#6895e4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </bottom>
+</BorderPane>
