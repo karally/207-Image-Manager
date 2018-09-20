@@ -1,5 +1,7 @@
 # 207-Image-Manager
 
+For any future CSC207 students looking for some quick code off the web, don't do it. 
+
 ## Summary
 
 A group project for course CSC207 Software Design (Fall 2017) at University of Toronto, St. George campus.
